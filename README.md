@@ -1,4 +1,17 @@
-# Project installation guide
+# Development of an affordable web-based system for smart home applications
+
+The objective of this project is to identify a set of low-cost sensors managed by a single board computer or microcontroller and develop a web application software so it can be used as a home monitoring system with smart capabilities, focusing on power-saving and wellbeing. Striving towards the solution several technical aspects will be investigated:
+1.	Hardware platforms
+2. Peripherals sensors for data collection
+3.	Object Oriented PHP and Human-Computer Interaction (HCI)
+4. API’s for software interaction with hardware
+
+Additional objectives were to be achieved by creating a project with accessible and low-cost hardware components. Keeping the overall cost of the project on a budget that is notably less of what the industry offers, aiming for a set-and-go solution.
+
+# Project installation guide 
+
+**** For examples for each step see Project installation guide pdf****
+
 1.	Install XAMPP normally https://www.apachefriends.org/index.html
 2.	Inside C/xampp/htdocs copy the webapp folder
 3.	Run XAMPP application
