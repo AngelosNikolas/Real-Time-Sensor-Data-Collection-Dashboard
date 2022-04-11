@@ -1,63 +1,61 @@
-# CodeIgniter 4 Application Starter
+# Development of an affordable web-based system for smart home applications
 
-## What is CodeIgniter?
+The objective of this project is to identify a set of low-cost sensors managed by a single board computer or microcontroller and develop a web application software so it can be used as a home monitoring system with smart capabilities, focusing on power-saving and wellbeing. Striving towards the solution several technical aspects will be investigated:
+1.	Hardware platforms
+2. Peripherals sensors for data collection
+3.	Object Oriented PHP and Human-Computer Interaction (HCI)
+4. API’s for software interaction with hardware
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+Additional objectives were to be achieved by creating a project with accessible and low-cost hardware components. Keeping the overall cost of the project on a budget that is notably less of what the industry offers, aiming for a set-and-go solution.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+# Project installation guide 
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+**** For examples for each step see Project installation guide pdf****
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+1.	Install XAMPP normally https://www.apachefriends.org/index.html
+2.	Inside C/xampp/htdocs copy the webapp folder
+3.	Run XAMPP application
+4.	Set default XAMPP directory root
+Click on Config button on XAMPP GUI
+ 
+Click on Apache (httpd.conf)
+ 
+Add and comment these lines as it shows below:
+ 
+Typing localhost on the browser should now redirect to the login page.
+ 
+ 
+4.Install the database in PHPmyAdmin
+Type in the browser while XAMMP is running: http://localhost/phpmyadmin/
 
-## Installation & updates
+1.	Select the new database on the left pane.
+2.	Click on the Import tab in the top center pane.
+3.	Under the File to import section, click Browse and locate the file sensors.sql
+4.	Click the GO button
+Now a database named sensors is installed having the table users inside it
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+5.	Type localhost on the browser bring the login page, either login with: 
+admin@admin.com
+admin123
+Or register new account
+Alternative for evaluation purposes type: localhost/sensors to view the dashboard without being logged with an account you can register or login using the system function/user command the left of the page on the sidebar.
+6.	Clicking on the Dashboard button will fetch the latest sensor value gathered from the sensors all other values are updated automatically.
+7.	Clicking the Analytics button on the sidebar will bring you the bottom of the page where the analytics are located
+Additional Notes:
+The hardware will be kept running for 30 days after the submission of the project, all values will be live.
+Inside CodeIgniter’s framework the pages that were used/created were:
+webapp/app/controllers/BaseController.php (Default framework controller)
+webapp/app/controllers/Users.php (all application backend operations)
+webapp/app/Models/UserModel.php (validation helper and password hashing)
+webapp/app/Validation/UserRules.php (validation rules)
+webapp/app/Views/Template/header.php (The header all page’s share)
+webapp/app/Views/Template/footer.php (The footer all page’s share)
+webapp/app/Views/sensors.php (The dashboard)
+webapp/app/Views/login.php (Login page)
+webapp/app/Views/register.php (Register page)
+webapp/app/Views/changeDetails (Update account details)
+webapp/public/assets/styles.css (Stylesheet)
+webapp/public/assets/scripts.js (JavaScript)
+The hardware script can be found in ThingSpeakConnection folder, you can view the code by using the Arduino’s IDE or open it with Notepad.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
 
-## Setup
-
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
-
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.3 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
